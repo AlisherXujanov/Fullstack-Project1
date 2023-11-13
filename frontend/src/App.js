@@ -1,18 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-import { useEffect } from 'react';
+import './index.scss'
+import "bootstrap/dist/css/bootstrap.min.css"
+import { BrowserRouter } from 'react-router-dom'
+import { context, initialState, globalReducer } from './conf/store.js';
+import { useReducer } from 'react';
+import AllComponents from './components/AllComponents.jsx'
 
 function App() {
-  useEffect(() => {
-    const url = 'http://127.0.0.1:8000/furniture/test' 
-    fetch(url)
-      .then(res => res.json())
-      .then(data => console.log(data))
-  })
+  const [state, dispatch] = useReducer(globalReducer, initialState)
+
   return (
-    <div className="App">
-      <h1>Hello world</h1>
-    </div>
+    <context.Provider value={state}>
+      <div className="App">
+        <BrowserRouter>
+          <AllComponents dispatch={dispatch} />
+        </BrowserRouter>
+      </div>
+    </context.Provider>
   );
 }
 
