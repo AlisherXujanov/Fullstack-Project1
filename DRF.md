@@ -669,6 +669,8 @@ But, this does NOT mean that client has to login again. Client can use refresh t
 ---
 ---
 
+
+### Customizing JWT
 If we want to some extra validation in the token, we can do it like this:
 ```python
 # views.py
