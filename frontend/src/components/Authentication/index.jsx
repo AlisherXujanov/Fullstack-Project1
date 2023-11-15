@@ -18,7 +18,6 @@ function Authentication(props) {
     return (
         <section id='authentication-section' style={styles}>
             <div>
-                <img src={star} className='main-logo' alt="Star" width={100} height={100} />
 
                 <div className='action-btns'>
                     <button onClick={() => { setRegistered(true) }}>ВОЙТИ</button>
