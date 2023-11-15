@@ -163,11 +163,11 @@ img:hover:not(.main-logo) {
 .form-group > div {
     position: relative;
 }
-#pass-input + img {
+.pass-input + img {
     position: absolute;
     right: 17%;
     top: 12px;
 }
-#pass-input + img:active {
+.pass-input + img:active {
     transform: scale(0.5);
 }

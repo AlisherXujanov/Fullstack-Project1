@@ -12,8 +12,8 @@ import Steam from '../../assets/icons/Steam.png';
 function Authentication(props) {
     let [registered, setRegistered] = useState(true);
 
-    let registerBB = { "box-shadow": "inset calc(((577px / 100) * 70) / 2) 0 #FAC704" }
-    let loginBB = { "box-shadow": "inset calc(((-577px / 100) * 70) / 2) 0 #FAC704" }
+    let registerBB = { "boxShadow": "inset calc(((577px / 100) * 70) / 2) 0 #FAC704" }
+    let loginBB = { "boxShadow": "inset calc(((-577px / 100) * 70) / 2) 0 #FAC704" }
 
     return (
         <section id='authentication-section' style={styles}>
