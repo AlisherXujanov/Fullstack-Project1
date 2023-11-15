@@ -1,5 +1,7 @@
 import Eye from "../../assets/icons/Eye.png";
 import { useState } from "react";
+import { axiosCall, accessTokenIsValid, refreshTokenLS } from '../../conf/axios.js'
+import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../../conf/common.js";
 
 function Login(props) {
     const [showPassword, setShowPassword] = useState(false);
@@ -9,8 +11,19 @@ function Login(props) {
     // Create the submit method.
     const submit = async e => {
         e.preventDefault();
+        const user = {
+            'username': username,
+            'password': password
+        }
+        const data = await axiosCall('api/token/create/', user, null, "POST")
+        localStorage.setItem(ACCESS_TOKEN_KEY, data.access)
+        localStorage.setItem(REFRESH_TOKEN_KEY, data.refresh)
     };
 
+    function fireSetUsername(e) { setUsername(e.target.value) } 
+    function fireSetPassword(e) { setPassword(e.target.value) } 
+
+    
     return (
         <div>
             <form className="form-group" onSubmit={submit}>
@@ -18,6 +31,7 @@ function Login(props) {
                     <input
                         type="text"
                         id="login-name-input"
+                        onChange={fireSetUsername}
                         placeholder="Никнейм или электронная почта"
                     />
                 </div>
@@ -25,6 +39,7 @@ function Login(props) {
                     <input
                         type={showPassword ? "text" : "password"}
                         id="login-pass-input"
+                        onChange={fireSetPassword}
                         className="pass-input"
                         placeholder="Пароль"
                     />
