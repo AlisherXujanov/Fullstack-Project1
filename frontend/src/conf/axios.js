@@ -3,14 +3,15 @@ import { BASE_URL } from './store.js';
 
 
 
-async function axiosCall(path, data = null, headers = null, method = "GET") {
+async function axiosCall(path, data = null, headersData = null, method = "GET") {
     try {
         const url = BASE_URL + path
+        const headers = { 'Content-Type': 'application/json', ...headersData }
         const response = await axios({
             method,
             url,
             data,
-            headers: headers ? headers : { 'Content-Type': 'application/json' },
+            headers,
             withCredentials: true
         });
         return response.data;
