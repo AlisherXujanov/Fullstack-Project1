@@ -6,11 +6,11 @@ function Register(props) {
         <div>
             <div className="form-group">
                 <div>
-                    <input type="text" id="name-input" placeholder="Введите никнейм" />
-                    <input type="text" id="name-input" placeholder="Электронная почта" pattern='^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$' />
+                    <input type="text" id="register-name-input" placeholder="Введите никнейм" />
+                    <input type="text" id="register-email-input" placeholder="Электронная почта" pattern='^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$' />
                 </div>
                 <div>
-                    <input type={showPassword ? "text" : "password"} id="pass-input" placeholder="Придумайте пароль" pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' />
+                    <input type={showPassword ? "text" : "password"} id="register-pass-input" className="pass-input" placeholder="Придумайте пароль" pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' />
                     <img src={Eye} onClick={() => { setShowPassword(!showPassword) }} alt="" />
                 </div>
                 <div>
