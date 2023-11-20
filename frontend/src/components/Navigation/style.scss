@@ -1,5 +1,26 @@
 @import "../../assets/Styles/_settings";
 
 .main-navbar {
-    background-color: $violet;
+    .upper-nav {
+        padding: 0 150px;
+        background-color: $violet;
+
+        .left-nav > *,
+        .right-nav > * {
+            display: inline-block;
+            padding: 6px 12px;
+        }
+
+        img {
+            margin: 0 15px;
+        }
+        a,
+        span {
+            text-decoration: none;
+            color: $light;
+        }
+    }
 }
+
+// left-nav
+// right-nav
