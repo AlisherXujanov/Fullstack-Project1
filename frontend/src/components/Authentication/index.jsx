@@ -3,7 +3,6 @@ import Register from './Register';
 import { useState } from 'react';
 import styles from './styles/index.css'
 
-import star from '../../assets/icons/eiffel.png';
 import Apple from '../../assets/icons/Apple.png';
 import Google from '../../assets/icons/Google.png';
 import Facebook from '../../assets/icons/Facebook.png';
