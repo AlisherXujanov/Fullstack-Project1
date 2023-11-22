@@ -1,17 +1,20 @@
+@use "../../assets/Styles/_resets";
 @import "../../assets/Styles/_settings";
 
 .main-navbar {
     .upper-nav {
         padding: 0 150px;
         background-color: $violet;
+        display: flex;
+        justify-content: space-between;
 
         .left-nav > *,
-        .right-nav > * {
+        .right-nav > *,
+        .nav-link {
             display: inline-block;
             padding: 6px 12px;
         }
-
-        img {
+        .left-nav img {
             margin: 0 15px;
         }
         a,
@@ -19,8 +22,74 @@
             text-decoration: none;
             color: $light;
         }
+        .right-nav {
+            img {
+                margin-left: 3px;
+            }
+        }
+    }
+    .main-nav {
+        padding: 20px 0 10px 0;
+
+        .main-nav-wrapper {
+            display: flex;
+            justify-content: space-evenly;
+
+            h3 {
+                font-size: 2em;
+                font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+            }
+
+            .main-nav-links {
+                text-align: left;
+
+                a {
+                    color: #222;
+                    text-decoration: none;
+                }
+                .nav-link {
+                    display: inline-block;
+                    padding: 10px 20px;
+                    font-family: "Poppins", sans-serif;
+
+                    &:hover {
+                        color: $danger;
+                        border-bottom: 1px solid $danger;
+                    }
+                }
+            }
+
+            input,
+            button {
+                display: inline-block;
+            }
+            input {
+                color: gray;
+                width: 250px;
+                height: 50px;
+                border-right: none;
+
+                &:focus {
+                    color: black;
+                    border-color: $danger;
+                    outline: 5px solid #fb2e8630;
+                }
+            }
+            button {
+                width: 55px;
+                height: 50px;
+                background-color: $danger;
+                border: none;
+                position: relative;
+                bottom: 2px;
+                &:hover {
+                    outline: 5px solid #fb2e8630;
+                }
+                img {
+                    position: relative;
+                    right: 3px;
+                }
+            }
+        }
     }
 }
-
-// left-nav
-// right-nav
