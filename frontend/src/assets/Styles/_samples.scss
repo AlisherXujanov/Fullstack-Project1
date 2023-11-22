@@ -1,0 +1,19 @@
+// Poppins
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+@import "./settings";
+
+.success-btn {
+    @extend %btn;
+    background-color: $violet;
+    color: snow;
+}
+.info-btn {
+    @extend %btn;
+    background-color: $dark-blue;
+    color: snow;
+}
+.danger-btn {
+    @extend %btn;
+    background-color: $danger;
+    color: snow;
+}

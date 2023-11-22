@@ -1,0 +1,23 @@
+@use "../../assets/Styles/_resets";
+@import "../../assets/Styles/_settings";
+
+.no-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    div {
+        width: 100%;
+        padding: 30px 150px;
+        text-align: left;
+        background-color: $light-violet;
+    }
+    .not-found-text {
+        color: $danger;
+    }
+
+    .brands-img {
+        margin: 100px 0;
+    }
+}

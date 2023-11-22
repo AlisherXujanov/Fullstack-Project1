@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
-import NoPage from './NoPage.jsx'
+import NoPage from './NoPage'
 import Auth from '../components/Authentication'
 import Navigation from '../components/Navigation'
 
