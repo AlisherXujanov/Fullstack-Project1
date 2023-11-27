@@ -7,6 +7,7 @@ import profileVector from '../../assets/icons/profile-vector.png'
 import wishlistVector from '../../assets/icons/wishlist-vector.png'
 import cardVector from '../../assets/icons/card-vector.png'
 import searchVector from '../../assets/icons/search-vector.png'
+import Footer from './Footer'
 
 
 export default function Navigation() {
@@ -104,6 +105,10 @@ export default function Navigation() {
                 </nav>
             </header>
             <Outlet />
+
+            <footer>
+                <Footer />
+            </footer>
         </div>
     )
 }
