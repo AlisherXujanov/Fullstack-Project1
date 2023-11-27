@@ -4,7 +4,7 @@ function Register(props) {
     let [showPassword, setShowPassword] = useState(false);
     return (
         <div>
-            <div className="form-group">
+            <form className="auth-form">
                 <div>
                     <input type="text" id="register-name-input" placeholder="Введите никнейм" />
                     <input type="text" id="register-email-input" placeholder="Электронная почта" pattern='^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$' />
@@ -17,7 +17,7 @@ function Register(props) {
                     <input type="password" id="pass2-input" placeholder="Повторите пароль" pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' />
                 </div>
                 <button className='войти'>Создать</button>
-            </div>
+            </form>
         </div>
     );
 }

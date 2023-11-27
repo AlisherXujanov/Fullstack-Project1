@@ -16,6 +16,7 @@ function Login(props) {
             'password': password
         }
         const data = await axiosCall('api/token/create/', user, null, "POST")
+        console.log(data)
         localStorage.setItem(ACCESS_TOKEN_KEY, data.access)
         localStorage.setItem(REFRESH_TOKEN_KEY, data.refresh)
     };
@@ -26,7 +27,7 @@ function Login(props) {
     
     return (
         <div>
-            <div className="auth-form" onSubmit={submit}>
+            <form className="auth-form" onSubmit={submit}>
                 <div>
                     <input
                         type="text"
@@ -50,7 +51,7 @@ function Login(props) {
                     <a className='восстановить' href='#'>Восстановить</a>
                 </p>
                 <button className='войти'>Войти</button>
-            </div>
+            </form>
         </div>
     );
 }
