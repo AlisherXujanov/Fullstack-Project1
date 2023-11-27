@@ -26,7 +26,7 @@ function Login(props) {
     
     return (
         <div>
-            <form className="form-group" onSubmit={submit}>
+            <div className="auth-form" onSubmit={submit}>
                 <div>
                     <input
                         type="text"
@@ -50,7 +50,7 @@ function Login(props) {
                     <a className='восстановить' href='#'>Восстановить</a>
                 </p>
                 <button className='войти'>Войти</button>
-            </form>
+            </div>
         </div>
     );
 }
