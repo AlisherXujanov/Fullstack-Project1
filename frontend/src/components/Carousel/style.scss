@@ -1,0 +1,43 @@
+@use "../../assets/Styles/_resets";
+@import "../../assets/Styles/_settings";
+
+#carousel-wrapper-id {
+    position: relative;
+    z-index: 0;
+
+    .trends-info {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background-color: rgb(0, 0, 0, 0.3);
+        color: snow;
+
+        position: absolute;
+        z-index: 1;
+        top: 200px;
+        left: 200px;
+        padding: 10px;
+        border-radius: 10px;
+
+        p {
+            color: $danger;
+        }
+        .muted {
+            color: lightgray;
+        }
+    }
+
+    img {
+        width: 100%;
+        filter: brightness(0.8);
+    }
+
+    .dot {
+        background-color: $danger;
+        width: 10px;
+        height: 10px;
+        border-radius: 0;
+        transform: rotate(45deg);
+    }
+}

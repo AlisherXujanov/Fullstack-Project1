@@ -39,7 +39,7 @@ export default function Navigation() {
                                 </Link>
                             </span>
                             <span className='nav-link'>
-                                <Link to={"/#"}>
+                                <Link to={"/auth"}>
                                     Login
                                     <img src={profileVector} alt="Vector" width={15} height={15} />
                                 </Link>
@@ -60,7 +60,11 @@ export default function Navigation() {
 
                     <div className="bottom-nav">
                         <div className="bottom-nav-wrapper">
-                            <h3>Hekto</h3>
+                            <h3>
+                                <Link to={"/"}>
+                                    Hekto
+                                </Link>
+                            </h3>
                             <div className="bottom-nav-links">
                                 <span className='nav-link'>
                                     <Link to={"/#"}>

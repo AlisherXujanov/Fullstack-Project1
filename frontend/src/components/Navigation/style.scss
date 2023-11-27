@@ -39,8 +39,13 @@
             justify-content: space-evenly;
 
             h3 {
-                font-size: 2em;
-                font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+                a {
+                    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+                    text-decoration: none;
+                    color: black;
+                    display: inline-block;
+                    padding: 20px 0;
+                }
             }
 
             .bottom-nav-links {
