@@ -11,10 +11,10 @@ import searchVector from '../../assets/icons/search-vector.png'
 
 export default function Navigation() {
     return (
-        <main style={styles}>
+        <header style={styles}>
             <nav className='main-navbar'>
                 <div className="upper-nav">
-                    <div className="left-nav">
+                    <div className="upper-left-nav">
                         <a href="mailto:alisherxujanov163@gmail.com">
                             <img src={emailVector} width="15" height="15" alt="" />
                             alisherxujanov163@gmail.com
@@ -24,7 +24,7 @@ export default function Navigation() {
                             (+99833) 4747477
                         </span>
                     </div>
-                    <div className="right-nav">
+                    <div className="upper-right-nav">
                         <span className='nav-link'>
                             <Link to={"/#"}>
                                 English
@@ -57,10 +57,10 @@ export default function Navigation() {
                     </div>
                 </div>
 
-                <div className="main-nav">
-                    <div className="main-nav-wrapper">
+                <div className="bottom-nav">
+                    <div className="bottom-nav-wrapper">
                         <h3>Hekto</h3>
-                        <div className="main-nav-links">
+                        <div className="bottom-nav-links">
                             <span className='nav-link'>
                                 <Link to={"/#"}>
                                     Pages
@@ -87,7 +87,7 @@ export default function Navigation() {
                                 </Link>
                             </span>
                         </div>
-                        <div className="main-nav-searchbar">
+                        <div className="bottom-nav-searchbar">
                             <input type="search" />
                             <button>
                                 <img src={searchVector}
@@ -98,6 +98,6 @@ export default function Navigation() {
                 </div>
             </nav>
             <Outlet />
-        </main>
+        </header>
     )
 }
