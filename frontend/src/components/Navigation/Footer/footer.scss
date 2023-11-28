@@ -10,10 +10,6 @@
         grid-template-columns: 3fr 1fr 1fr 3fr;
         gap: 50px;
 
-        h3,
-        h2 {
-            font-family: "poppins";
-        }
         h3 {
             font-size: 1em;
         }
@@ -60,6 +56,43 @@
                     right: 10px;
                 }
             }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .footer-wrapper {
+        padding: 100px 0 100px 50px;
+
+        .upper-footer {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 50px;
+
+            .contact-info {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .footer-wrapper {
+        padding: 100px 0 100px 50px;
+
+        .upper-footer {
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-wrapper {
+        padding: 100px 0 100px 20px;
+
+        .upper-footer {
+            grid-template-columns: 1fr;
+            gap: 50px;
         }
     }
 }
