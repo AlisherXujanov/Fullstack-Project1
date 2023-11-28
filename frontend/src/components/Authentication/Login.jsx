@@ -46,9 +46,9 @@ function Login(props) {
                     />
                     <img src={Eye} onClick={() => { setShowPassword(!showPassword) }} alt="" />
                 </div>
-                <p className='помошник'>
+                <p className='forget-password'>
                     <span>Забыли пароль?</span>
-                    <a className='восстановить' href='#'>Восстановить</a>
+                    <a className='Recover' href='#'>Восстановить</a>
                 </p>
                 <button className='войти'>Войти</button>
             </form>
