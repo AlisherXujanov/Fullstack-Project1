@@ -1,3 +1,5 @@
+@import "../../../assets/Styles/_init_";
+
 #authentication-section {
     background: url(../../../assets/imgs/bgs/living-room-bg.jpg) no-repeat;
     background-color: rgb(0, 0, 0, 0.4);
@@ -159,6 +161,17 @@
     }
     .auth-form > div {
         position: relative;
+
+        .error {
+            display: inline-block;
+            font-style: italic;
+            color: red;
+            background-color: rgb(0, 0, 0, 0.5);
+            width: 70%;
+            margin: 0 auto 10px auto;
+            border-radius: 5px;
+            padding: 0 50px;
+        }
     }
     .pass-input + img {
         position: absolute;

@@ -38,7 +38,8 @@ async function axiosCall(path, data = null, headersData = null, method = "GET") 
         return response.data;
     } catch (error) {
         console.error(`Error in axiosCall`);
-        console.error(error);
+        console.error(error.message);
+        return error
     }
 }
 export {
