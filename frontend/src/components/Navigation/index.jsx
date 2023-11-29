@@ -9,6 +9,8 @@ import cardVector from '../../assets/icons/card-vector.png'
 import searchVector from '../../assets/icons/search-vector.png'
 import Footer from './Footer'
 
+import { isLoggedIn } from "../../conf/common"
+
 
 export default function Navigation() {
     return (
@@ -40,10 +42,19 @@ export default function Navigation() {
                                 </Link>
                             </span>
                             <span className='nav-link'>
-                                <Link to={"/auth"}>
-                                    Login
-                                    <img src={profileVector} alt="Vector" width={15} height={15} />
-                                </Link>
+                                {
+                                    isLoggedIn()
+                                        ?
+                                            (<Link to={"/#profile"}>
+                                                Profile
+                                                <img src={profileVector} alt="Vector" width={15} height={15} />
+                                            </Link>)
+                                        :
+                                            (<Link to={"/auth"}>
+                                                Login
+                                                <img src={profileVector} alt="Vector" width={15} height={15} />
+                                            </Link>)
+                                }
                             </span>
                             <span className='nav-link'>
                                 <Link to={"/#"}>

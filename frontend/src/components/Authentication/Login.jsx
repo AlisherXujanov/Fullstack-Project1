@@ -31,6 +31,8 @@ function Login(props) {
         localStorage.clear()
         localStorage.setItem(ACCESS_TOKEN_KEY, data.access)
         localStorage.setItem(REFRESH_TOKEN_KEY, data.refresh)
+        toast.success("Successfully logged in", {toastId: 4})
+        props.navigate('/')
     };
 
     const PATTERN = /^[a-zA-Z0-9]+$/;
