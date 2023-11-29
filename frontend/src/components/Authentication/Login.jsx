@@ -13,13 +13,20 @@ function Login(props) {
     // Create the submit method.
     const submit = async e => {
         e.preventDefault();
+        if (username.length === 0   ||   password.length === 0) {
+            toast.warn("All fields are required.", {toastId: 2})
+            return
+        } else if (error.usernameErr || error.passwordErr) {
+            toast.warn("Please fix the errors.", {toastId: 3})
+            return
+        }
         const user = {
             'username': username,
             'password': password
         }
         const data = await axiosCall('api/token/create/', user, null, "POST")
         if (data.response?.status === 401) {
-            toast.error("Incorrect credentials", {toastId: '1'})
+            toast.error("Incorrect credentials", {toastId: 1})
         }
         localStorage.clear()
         localStorage.setItem(ACCESS_TOKEN_KEY, data.access)
