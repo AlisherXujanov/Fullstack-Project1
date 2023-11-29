@@ -31,7 +31,9 @@ function Login(props) {
         const val = e.target.value
         if (val.length !== 0) {
             if (!PATTERN.test(val)) {
-                setError({ ...error, usernameErr: 'Пароль может содержать только латинские буквы и цифры' })
+                setError({ ...error, usernameErr: 'Никнейм может содержать только латинские буквы и цифры' })
+            } else {
+                setError({ ...error, usernameErr: '' })
             }
         } else {
             setError({ ...error, usernameErr: '' })
@@ -44,6 +46,8 @@ function Login(props) {
         if (val.length !== 0) {
             if (!PATTERN.test(val)) {
                 setError({ ...error, passwordErr: 'Пароль может содержать только латинские буквы и цифры' })
+            } else {
+                setError({ ...error, passwordErr: '' })
             }
         } else {
             setError({ ...error, passwordErr: '' })
