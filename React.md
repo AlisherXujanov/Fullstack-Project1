@@ -63,3 +63,35 @@ export const axiosPrivate = axios.create({
     withCredentials: true   // for cookies:  if not set, then cookies are not sent
 });
 ```
+
+
+### Create HOC (higher order component) for checking if user is authenticated
+
+`AuthCheck.jsx`
+```javascript
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { isLoggedIn } from '../conf/common';
+
+export default function withAuthCheck(Component) {
+    return function AuthenticatedComponent(props) {
+        const navigate = useNavigate();
+
+        useEffect(() => {
+            if (!isLoggedIn()) {
+                navigate('/auth');
+            }
+        }, [navigate]);
+
+
+        return <Component {...props} />;
+    };
+}
+```
+Then we can use it in our components like this:
+```javascript
+...
+import withAuthCheck from './AuthCheck'; 
+const AuthenticatedComponent = withAuthCheck(Component);
+...
+```
