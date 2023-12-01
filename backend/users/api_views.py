@@ -26,6 +26,12 @@ def register(request):
     Token.objects.create(user=user)
     return Response({'token': user.auth_token.key}, status=201)
 
+# {
+#     "username": "test",
+#     "password": "test",
+#     "password2": "test2"
+# }
+
 
 @api_view(['POST'])
 def logout(request):
