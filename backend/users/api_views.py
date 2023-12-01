@@ -24,13 +24,8 @@ def register(request):
         return Response({'error': 'Username already taken'}, status=400)
     user = User.objects.create_user(username=username, password=password)
     Token.objects.create(user=user)
-    return Response({'token': user.auth_token.key}, status=201)
+    return Response({'success': True}, status=201)
 
-# {
-#     "username": "test",
-#     "password": "test",
-#     "password2": "test2"
-# }
 
 
 @api_view(['POST'])
