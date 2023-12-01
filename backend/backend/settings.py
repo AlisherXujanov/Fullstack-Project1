@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'furniture',
+    'users',
     'rest_framework',
     'corsheaders',
     'rest_framework_simplejwt',
