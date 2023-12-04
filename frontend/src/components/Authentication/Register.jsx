@@ -1,5 +1,6 @@
 import Eye from "../../assets/icons/Eye.png";
 import { useState } from "react";
+import { toast } from 'react-toastify'
 
 
 function Register(props) {
@@ -24,14 +25,14 @@ function Register(props) {
         } else {
             setError({ ...errors, usernameErr: '' })
         }
-        setUsername(val) 
-    } 
+        setUsername(val)
+    }
     function fireSetPassword(e) {
         const val = e.target.value
         const inputName = e.target.name
 
-     
-        let errName = inputName === "password"  ?  'passwordErr' : 'password2Err'
+
+        let errName = inputName === "password" ? 'passwordErr' : 'password2Err'
 
         if (val.length !== 0) {
             if (!PATTERN.test(val)) {
@@ -43,8 +44,8 @@ function Register(props) {
             setError({ ...errors, [errName]: '' })
         }
 
-        inputName === "password"  ?  setPassword(val) : setPassword2(val) 
-    } 
+        inputName === "password" ? setPassword(val) : setPassword2(val)
+    }
     function fireSetEmail(e) {
         e.preventDefault()
         // const emailPattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
@@ -61,21 +62,34 @@ function Register(props) {
         setEmail(val)
     }
 
+    function handleSubmit(e) {
+        e.preventDefault()
+        if (password !== password2) {
+            setError({ ...errors, password2Err: 'Пароли не совпадают' })
+            return
+        }
+        if (errors.usernameErr || errors.passwordErr ||
+            errors.password2Err || errors.emailErr) {
+            toast.error('Пожалуйста, заполните все поля корректно', { toastId: 9 })
+            return
+        }
+        
+    }
 
     return (
         <div>
-            <form className="auth-form">
+            <form className="auth-form" onSubmit={handleSubmit}>
                 <div>
-                    <input 
-                        type="text" id="register-name-input" 
-                        placeholder="Введите никнейм" 
+                    <input
+                        type="text" id="register-name-input"
+                        placeholder="Введите никнейм"
                         onChange={fireSetUsername}
                     />
                     <p className="error">
                         {errors.usernameErr}
                     </p>
 
-                    <input type="email" id="register-email-input" placeholder="Электронная почта" 
+                    <input type="email" id="register-email-input" placeholder="Электронная почта"
                         onChange={fireSetEmail}
                     />
                     <p className="error">
@@ -83,11 +97,11 @@ function Register(props) {
                     </p>
                 </div>
                 <div>
-                    <input 
-                        id="register-pass-input" 
-                        type={showPassword ? "text" : "password"} 
-                        className="pass-input" 
-                        placeholder="Придумайте пароль" 
+                    <input
+                        id="register-pass-input"
+                        type={showPassword ? "text" : "password"}
+                        className="pass-input"
+                        placeholder="Придумайте пароль"
                         name="password"
                         onChange={fireSetPassword}
                     />
@@ -97,10 +111,10 @@ function Register(props) {
                     </p>
                 </div>
                 <div>
-                    <input 
-                        id="pass2-input" 
-                        type="password" 
-                        placeholder="Повторите пароль" 
+                    <input
+                        id="pass2-input"
+                        type="password"
+                        placeholder="Повторите пароль"
                         name="password2"
                         onChange={fireSetPassword}
                     />

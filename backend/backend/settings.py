@@ -160,14 +160,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         # 'rest_framework.authentication.TokenAuthentication',
     ],
-    'DEFAULT_THROTTLE_CLASSES': [
-        'rest_framework.throttling.AnonRateThrottle',  # for anonymous users
-        'rest_framework.throttling.UserRateThrottle',  # for authenticated users
-    ],
-    'DEFAULT_THROTTLE_RATES': {
-        'anon': '10/minute',  # 10 requests per minute
-        'user': '20/minute',  # 20 requests per minute
-    },
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 2,
 }
