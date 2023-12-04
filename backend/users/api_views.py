@@ -28,16 +28,3 @@ def register(request):
     user = User.objects.create_user(username=username, password=password, email=email)
     Token.objects.create(user=user)
     return Response({'success': True}, status=201)
-
-
-
-@api_view(['POST'])
-def logout(request):
-    try:
-        refresh_token = request.data["refresh_token"]
-        token = RefreshToken(refresh_token)
-        token.blacklist()
-        request.user.auth_token.delete()
-        return Response(status=status.HTTP_205_RESET_CONTENT)
-    except Exception as e:
-        return Response(status=status.HTTP_400_BAD_REQUEST)
