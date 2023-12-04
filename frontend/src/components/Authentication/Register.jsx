@@ -1,6 +1,7 @@
-import Eye from "../../assets/icons/Eye.png";
-import { useState } from "react";
+import Eye from "../../assets/icons/Eye.png"
+import { useState } from "react"
 import { toast } from 'react-toastify'
+import { registerNewUser } from "../../conf/axios.js"
 
 
 function Register(props) {
@@ -73,7 +74,14 @@ function Register(props) {
             toast.error('Пожалуйста, заполните все поля корректно', { toastId: 9 })
             return
         }
-        
+        try {
+            registerNewUser(username, password, password2, email)
+            toast.success('Успешное регистрация, вы сейчас можете войти', { toastId: 10 })
+            e.target.reset()
+            props.reloadAuthPage()
+        } catch (err) {
+            toast.error('Что то произошло не так, повторите попытку', { toastId: 10 })
+        }
     }
 
     return (

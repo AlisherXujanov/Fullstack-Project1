@@ -2,6 +2,18 @@ import axios from 'axios';
 import { BASE_URL } from './store.js';
 import { REFRESH_TOKEN_KEY, ACCESS_TOKEN_KEY } from './common.js';
 
+function registerNewUser(username, password, password2, email) {
+    const new_user = {
+        username, 
+        password,
+        password2,
+        email
+    }
+    return axiosCall("api/users/register/", new_user, null, "POST")
+}
+
+
+
 // "api/token/refresh/"
 
 async function accessTokenIsValid() {
@@ -43,6 +55,7 @@ async function axiosCall(path, data = null, headersData = null, method = "GET") 
     }
 }
 export {
+    registerNewUser,
     axiosCall,
     accessTokenIsValid,
     refreshTokenLS

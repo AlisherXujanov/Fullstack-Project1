@@ -13,7 +13,12 @@ import { useNavigate } from 'react-router-dom'
 
 
 function Authentication(props) {
+    let [registered, setRegistered] = useState(true);
     const navigate = useNavigate()
+
+    function reloadAuthPage() {
+        setRegistered(true)
+    }
 
     useEffect(() => {
         if (isLoggedIn()) {
@@ -21,7 +26,6 @@ function Authentication(props) {
         }
     })
 
-    let [registered, setRegistered] = useState(true);
 
     let registerBB = { "boxShadow": "inset calc(((577px / 100) * 70) / 2) 0 #FAC704" }
     let loginBB = { "boxShadow": "inset calc(((-577px / 100) * 70) / 2) 0 #FAC704" }
@@ -40,7 +44,7 @@ function Authentication(props) {
                         <Login navigate={navigate} />
                     </div>
                     <div className={registered ? 'invisible' : 'visible'}>
-                        <Register />
+                        <Register reloadAuthPage={reloadAuthPage} />
                     </div>
 
                     <div className='globals'>
