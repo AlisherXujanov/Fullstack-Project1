@@ -84,7 +84,7 @@ export default function Navigation() {
                                     </Link>
                                 </span>
                                 <span className='nav-link'>
-                                    <Link to={"/#"}>
+                                    <Link to={"/products"}>
                                         Products
                                     </Link>
                                 </span>
