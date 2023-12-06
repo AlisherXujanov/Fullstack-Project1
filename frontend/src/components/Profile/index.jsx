@@ -1,5 +1,5 @@
 import './style.scss'
-import { logoutEntirely } from '../../conf/common.js'
+import { logoutEntirely } from '../../conf/auth.js'
 import { useNavigate } from 'react-router-dom';
 
 function Profile() {

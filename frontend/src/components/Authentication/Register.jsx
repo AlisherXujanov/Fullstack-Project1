@@ -1,7 +1,7 @@
 import Eye from "../../assets/icons/Eye.png"
 import { useState } from "react"
 import { toast } from 'react-toastify'
-import { registerNewUser } from "../../conf/axios.js"
+import { registerNewUser } from "../../conf/auth.js"
 
 
 function Register(props) {
