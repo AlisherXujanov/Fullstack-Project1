@@ -3,10 +3,10 @@
 3. *Navbar && 404-page*
 4. *Carousel && Footer*
 5. *Authentication (full)* && profile-page
-6. **Modals (backend logic)**
-7. Frontend CRUD
+6. *Modals (backend logic)*
+7. **Frontend CRUD**
 8. Wishlist && Cart && Completed-order
-9. Cards && Grid (part-1)
-10. About && Contact
-11. Cards && Grid (part-2)
-12. Hosting (Finish Project)
+9. Hosting
+10. Cards && Grid (part-1)
+11. About && Contact
+12. Cards && Grid (part-2)
