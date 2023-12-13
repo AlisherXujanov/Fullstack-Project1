@@ -1,0 +1,107 @@
+@import "../../assets/Styles/settings";
+
+#product-page {
+    text-align: center;
+    margin-top: 20px;
+
+    h1 {
+        color: $dark-blue;
+    }
+
+    .new-arrivals {
+        ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            li {
+                margin: 10px 20px;
+                font-size: 1.2em;
+                color: $dark-blue;
+                transition: 0.1s;
+                border-bottom: solid 1px transparent;
+                font-weight: bold;
+
+                &:hover {
+                    cursor: pointer;
+                    color: $danger;
+                    border-bottom: solid 1px $danger;
+                }
+            }
+        }
+    }
+
+    .items {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 50px;
+        padding: 20px 200px;
+
+        .product-item-wrapper {
+            background-color: $light;
+            position: relative;
+
+            .hover-info {
+                position: absolute;
+                width: 0;
+                overflow: hidden;
+                background-color: rgb(0, 0, 0, 0.5);
+                left: 0;
+                top: 0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                    margin: 10px 0;
+                }
+                span {
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                }
+            }
+
+            &:hover {
+                background-color: $light-violet;
+                border-radius: 0 0 5px 5px;
+
+                .hover-info {
+                    width: 20%;
+                    span {
+                        &:hover {
+                            background-color: $dark-blue;
+                        }
+                    }
+                }
+            }
+
+            .info {
+                color: $dark-blue;
+                font-weight: normal;
+                display: flex;
+                justify-content: space-between;
+                font-size: 1.1em;
+                padding: 15px 10px 0 5px;
+                font-family: cursive;
+
+                p {
+                    border-bottom: 2px solid lightgray;
+                }
+
+                .price {
+                    span {
+                        margin-left: 20px;
+                        color: $danger;
+                        text-decoration: line-through solid;
+                    }
+                }
+            }
+        }
+    }
+}
