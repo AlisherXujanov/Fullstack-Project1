@@ -57,7 +57,7 @@ export default function Navigation() {
                                 }
                             </span>
                             <span className='nav-link'>
-                                <Link to={"/#"}>
+                                <Link to={"/wishlist"}>
                                     Wishlist
                                     <img src={wishlistVector} alt="Vector" width={15} height={15} />
                                 </Link>
