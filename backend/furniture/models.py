@@ -1,23 +1,29 @@
+from django.contrib.auth.models import User
 from django.db import models
 from PIL import Image
 import os
+
+
+class WishList(models.Model):
+    furnitures = models.ManyToManyField('Furniture', null=True, blank=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
 class Furniture(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
     price = models.IntegerField()
     color = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='furniture/', 
+    image = models.ImageField(upload_to='furniture/',
                               default='furniture/default.jpg')
     category = models.CharField(max_length=100)
     quantity = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-
     def save(self, *args, **kwargs):
         super(Furniture, self).save(*args, **kwargs)
-        
+
         img = Image.open(self.image.path)
         if img.height > 600 or img.width > 600:
             output_size = (600, 600)

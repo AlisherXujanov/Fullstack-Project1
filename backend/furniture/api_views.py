@@ -5,6 +5,7 @@ from rest_framework.status import *
 from .serializers import FurnitureSerializer
 
 
+
 class FurnitureList(NoAuthApiView):
     """List all furniture"""
 
@@ -45,3 +46,12 @@ class FurnitureDetails(NoAuthApiView):
         furniture = Furniture.objects.get(pk=pk)
         furniture.delete()
         return Response(status=HTTP_204_NO_CONTENT)
+
+
+class WishlistApiView(NoAuthApiView):
+
+    def get(self, request):
+        wishlist = get_wishlist(request)
+        furnitures = wishlist.furnitures.all()
+        serializer = FurnitureSerializer(furnitures, many=True)
+        return Response(serializer.data, status=HTTP_200_OK)
