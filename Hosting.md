@@ -30,6 +30,33 @@ For more detailed instructions, you can refer to the [PythonAnywhere help pages]
 
 ---
 
+# Configure WSGI File
+To configure the WSGI file for hosting on PythonAnywhere, you can follow these steps:
+
+1. After logging into PythonAnywhere, go to the Web tab.
+2. Create a new web app or select your existing web app.
+3. In the Code section, you'll find a link to the WSGI configuration file. Click on it.
+4. In the WSGI configuration file, you'll see some default code. You need to modify this to point to your Django project.
+5. Comment out the existing code and add the following:
+```python
+import os
+import sys
+
+path = '/home/YourPythonAnywhereUsername/YourProjectName'
+if path not in sys.path:
+    sys.path.append(path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'YourProjectName.settings'
+
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+```
+Replace `YourPythonAnywhereUsername` with your PythonAnywhere username and `YourProjectName` with the name of your Django project.
+---
+Save the changes to the WSGI configuration file.
+Go back to the Web tab and hit the Reload button.
+Your Django app should now be live on PythonAnywhere.
+---
 
 # Configure HTTPS (SSL/TSL) for Django Project deployed on PythonAnywhere
 To configure HTTPS (SSL/TLS) for your Django project deployed on PythonAnywhere, you can follow these steps:
@@ -95,3 +122,11 @@ After saving your changes, click on the "Reload" button at the top of the "Web" 
 
 Now, PythonAnywhere will serve your static files at the URL you specified.
 - RU: Теперь PythonAnywhere будет обслуживать ваши статические файлы по указанному вами URL-адресу.
+
+
+
+# Configure Virtual Environment
+Please note that PythonAnywhere doesn't support Pipfile.lock, so you might need to generate a requirements.txt file from your Pipfile. You can do this using the following command:
+
+`pipenv lock -r > requirements.txt` - is outdated
+🎯 New version is: `pipenv run pip freeze > requirements` txt
