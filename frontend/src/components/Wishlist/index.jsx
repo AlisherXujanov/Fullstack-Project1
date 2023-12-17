@@ -1,9 +1,11 @@
 import "./style.scss"
-import { useEffect, useState } from 'react'
+import { useEffect, useContext } from 'react'
 import { axiosCall } from '../../conf/axios'
+import { context } from "../../conf/store"
+
 
 function Wishlist(props) {
-    const [wishlist, setWishlist] = useState([])
+    const state = useContext(context)
 
     async function getWishlist() {
         let headers = {
@@ -11,7 +13,10 @@ function Wishlist(props) {
         }
         const url = "api/furniture/wishlist/"
         const response = await axiosCall(url, null, headers)
-        console.log(response)
+        state.dispatch({
+            type: "setWishlist",
+            payload: response
+        })
     }
 
     useEffect(() => {
