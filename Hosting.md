@@ -18,14 +18,20 @@ After logging in, go to the "Files" tab and upload your project files. You can a
 
 ## 3. Set up a virtual environment: 
 Go to the "Consoles" tab and start a new Bash console. Then, create a new virtual environment and install your project's dependencies. You can use the Pipfile and Pipfile.lock files in your project to do this.
-- RU: Перейдите на вкладку "Consoles" и запустите новую консоль Bash. Затем создайте новую виртуальную среду и установите зависимости вашего проекта. Вы можете использовать файлы Pipfile и Pipfile.lock в вашем проекте для этого.
+- To install requirements.txt file use: 
+```bash
+pip install -r requirements.txt
+```
+- RU: Перейдите на вкладку "Consoles" и запустите новую консоль Bash. Затем создайте новую виртуальную среду и установите зависимости вашего проекта. Вы можете использовать файлы Pipfile и Pipfile.lock в вашем проекте для этого. Напишите в консоли то что сверху.
 
 
 ## 4. Configure the WSGI file: 
 Go to the "Web" tab and click on "Add a new web app". Follow the steps and choose "Manual configuration" (Python 3.8). In the "Code" section, go to the WSGI configuration file and modify it to point to your Django project. You can use the [backend\backend\wsgi.py](backend\backend\wsgi.py) file in your project as a reference.
+- RU: Перейдите на вкладку "Web" и нажмите "Add a new web app". Следуйте инструкциям и выберите "Manual configuration" (Python 3.8). В разделе "Code" перейдите в файл конфигурации WSGI и измените его, чтобы он указывал на ваш проект Django. Вы можете использовать файл [backend\backend\wsgi.py](backend\backend\wsgi.py) в вашем проекте в качестве справки.
 
 ## 5. Set up the database: 
 In the "Databases" tab, you can set up a new database and configure it to work with your Django project. Update the `DATABASES` setting in your [backend\backend\settings.py](backend\backend\settings.py) file to match the database credentials.
+- RU: На вкладке "Databases" вы можете настроить новую базу данных и настроить ее для работы с вашим проектом Django. Обновите настройку `DATABASES` в файле [backend\backend\settings.py](backend\backend\settings.py), чтобы соответствовать учетным данным базы данных.
 
 ## 6. Start the web app: 
 Go back to the "Web" tab and click on "Reload" to start your web app.
@@ -45,6 +51,7 @@ To configure the WSGI file for hosting on PythonAnywhere, you can follow these s
 3. In the Code section, you'll find a link to the WSGI configuration file. Click on it.
 4. In the WSGI configuration file, you'll see some default code. You need to modify this to point to your Django project.
 5. Comment out the existing code and add the following:
+   
 ```python
 import os
 import sys
@@ -58,9 +65,10 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'YourProjectName.settings'
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 ```
-Replace `YourPythonAnywhereUsername` with your PythonAnywhere username and `YourProjectName` with the name of your Django project.
+
+- Replace `YourPythonAnywhereUsername` with your PythonAnywhere username and `YourProjectName` with the name of your Django project.
 ---
-Save the changes to the WSGI configuration file.
+- Save the changes to the WSGI configuration file.
 Go back to the Web tab and hit the Reload button.
 Your Django app should now be live on PythonAnywhere.
 ---
@@ -136,4 +144,4 @@ Now, PythonAnywhere will serve your static files at the URL you specified.
 Please note that PythonAnywhere doesn't support Pipfile.lock, so you might need to generate a requirements.txt file from your Pipfile. You can do this using the following command:
 
 `pipenv lock -r > requirements.txt` - is outdated
-🎯 New version is: `pipenv run pip freeze > requirements` txt
+🎯 New version is: `pipenv run pip freeze > requirements.txt`

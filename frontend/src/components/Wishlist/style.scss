@@ -1,2 +1,14 @@
 .wishlist-wrapper {
+    .wishlist-items {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+
+        .wishlist-item-wrapper {
+            background-color: #eee;
+            border-radius: 10px;
+            padding: 5px;
+        }
+    }
 }
