@@ -21,7 +21,10 @@ Go to the "Consoles" tab and start a new Bash console. Then, create a new virtua
 - To install requirements.txt file use: 
 ```bash
 pip install -r requirements.txt
+mkvirtualenv --python=/usr/bin/python3.10 venv
 ```
+afterwards, enter just `venv` to activate virtual environment where it asks for Virtualenv:
+
 - RU: Перейдите на вкладку "Consoles" и запустите новую консоль Bash. Затем создайте новую виртуальную среду и установите зависимости вашего проекта. Вы можете использовать файлы Pipfile и Pipfile.lock в вашем проекте для этого. Напишите в консоли то что сверху.
 
 
