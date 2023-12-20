@@ -10,7 +10,7 @@
     .wishlist-items {
         * {
             text-decoration: none;
-            color: darkblue;
+            color: $dark-blue;
         }
         width: 100%;
         display: grid;
@@ -23,6 +23,10 @@
             padding: 5px;
             position: relative;
             margin: 10px;
+
+            div {
+                padding: 5px 10px;
+            }
 
             .del-item {
                 display: flex;

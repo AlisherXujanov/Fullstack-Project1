@@ -44,9 +44,11 @@ function Wishlist(props) {
                                             alt={item.name}
                                             width={"100%"}
                                         />
-                                        <h2>Name: {item.name}</h2>
-                                        <p>Description: {item.description}</p>
-                                        <p>Category: {item.category}</p>
+                                        <div>
+                                            <h3>Name: {item.name}</h3>
+                                            <p>Description: {item.description}</p>
+                                            <p>Category: {item.category}</p>
+                                        </div>
 
                                         <span onClick={""} className="del-item">
                                             &times;
