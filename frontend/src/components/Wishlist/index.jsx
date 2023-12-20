@@ -47,6 +47,10 @@ function Wishlist(props) {
                                         <h2>Name: {item.name}</h2>
                                         <p>Description: {item.description}</p>
                                         <p>Category: {item.category}</p>
+
+                                        <span onClick={""} className="del-item">
+                                            &times;
+                                        </span>
                                     </div>
                                 </Link>
                             )
