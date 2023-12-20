@@ -13,22 +13,28 @@ class AuthApiView(NoAuthApiView):
 
 
 def get_wishlist(request):
-    wishlist_objs = WishList.objects.filter(owner=request.user)
-    return wishlist_objs[0]
+    if request.user.is_authenticated:
+        wishlist_objs = WishList.objects.filter(owner=request.user)
+        return wishlist_objs[0]
+    return []
 
 
 def set_wishlist(request, furniture_id:int):
-    wishlist_objs = WishList.objects.filter(owner=request.user)
-    if wishlist_objs:
-        wishlist = wishlist_objs[0]
-    else:
-        wishlist = WishList.objects.create(owner=request.user)
-    
-    furniture = Furniture.objects.get(pk=furniture_id)
-    wishlist.furnitures.add(furniture)
+    if request.user.is_authenticated:
+        wishlist_objs = WishList.objects.filter(owner=request.user)
+        if wishlist_objs:
+            wishlist = wishlist_objs[0]
+        else:
+            wishlist = WishList.objects.create(owner=request.user)
+        
+        furniture = Furniture.objects.get(pk=furniture_id)
+        wishlist.furnitures.add(furniture)
+    return
 
 
 def del_furniture_from_wishlist(request, furniture_id:int):
-    if wishlist := WishList.objects.filter(owner=request.user)[0]:
-        furniture = Furniture.objects.get(pk=furniture_id)
-        wishlist.furnitures.remove(furniture)
+    if request.user.is_authenticated:
+        if wishlist := WishList.objects.filter(owner=request.user)[0]:
+            furniture = Furniture.objects.get(pk=furniture_id)
+            wishlist.furnitures.remove(furniture)
+    return

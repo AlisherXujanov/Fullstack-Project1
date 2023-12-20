@@ -11,7 +11,7 @@ class FurnitureList(NoAuthApiView):
 
     def get(self, request):
         furniture = Furniture.objects.all()
-        serializer = FurnitureSerializer(furniture, many=True)
+        serializer = FurnitureSerializerForWishlist(furniture, many=True)
         return Response(serializer.data, status=HTTP_200_OK)
 
 
@@ -59,6 +59,13 @@ class WishlistApiView(NoAuthApiView):
 
 
     def post(self, request):
+        print("=============================================")
+        print("=============================================")
+        print("=============================================")
+        print("request.data: ", request.data)
+        print("=============================================")
+        print("=============================================")
+        print("=============================================")
         furniture_id = request.data.get('furniture_id')
         if delete := request.data.get('delete_furniture'):
             del_furniture_from_wishlist(request, furniture_id)
