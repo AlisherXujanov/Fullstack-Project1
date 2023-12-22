@@ -20,7 +20,12 @@ After logging in, go to the "Files" tab and upload your project files. You can a
 Go to the "Consoles" tab and start a new Bash console. Then, create a new virtual environment and install your project's dependencies. You can use the Pipfile and Pipfile.lock files in your project to do this.
 - To install requirements.txt file use: 
 ```bash
-pip install -r requirements.txt
+# IF PIP
+# pip install -r requirements.txt
+# OR
+# If PIPENV 
+pipenv run pip freeze > requirements.txt
+
 mkvirtualenv --python=/usr/bin/python3.10 venv
 ```
 afterwards, enter just `venv` to activate virtual environment where it asks for Virtualenv:
@@ -81,8 +86,8 @@ To configure HTTPS (SSL/TLS) for your Django project deployed on PythonAnywhere,
 - RU: Чтобы настроить HTTPS (SSL / TLS) для вашего проекта Django, развернутого на PythonAnywhere, вы можете выполнить следующие шаги:
 
 ## 1. Obtain a SSL Certificate: 
-You can get a free SSL certificate from Let's Encrypt. PythonAnywhere has a built-in tool to do this. Go to the "Web" tab, scroll down to the "Security" section, and click on the "Enable HTTPS" button. Follow the instructions to get a certificate from Let's Encrypt.
-- RU: Вы можете получить бесплатный SSL-сертификат от Let's Encrypt. PythonAnywhere имеет встроенный инструмент для этого. Перейдите на вкладку "Web", прокрутите вниз до раздела "Безопасность" и нажмите кнопку "Включить HTTPS". Следуйте инструкциям, чтобы получить сертификат от Let's Encrypt.
+You can get a free SSL certificate from PythonAnywhere. PythonAnywhere has a built-in tool to do this. Go to the "Web" tab, scroll down to the "Security" section, and click on the "Enable HTTPS" button. Follow the instructions to get a certificate from PythonAnywhere.
+- RU: Вы можете получить бесплатный SSL-сертификат от PythonAnywhere. PythonAnywhere имеет встроенный инструмент для этого. Перейдите на вкладку "Web", прокрутите вниз до раздела "Безопасность" и нажмите кнопку "Включить HTTPS". Следуйте инструкциям, чтобы получить сертификат от PythonAnywhere.
 
 ## 2. Configure PythonAnywhere to Use the SSL Certificate: 
 After obtaining the certificate, PythonAnywhere should automatically configure your web app to use it. If not, you can manually specify the paths to the certificate and private key files in the "Security" section of the "Web" tab.
@@ -110,9 +115,11 @@ Remember, using HTTPS is important for security, especially if your site handles
 
 To configure static files for your Django project on PythonAnywhere, follow these steps:
   - RU: Чтобы настроить статические файлы для вашего проекта Django на PythonAnywhere, выполните следующие действия:
-  
+
 
 ## 1. Collect static files: 
+<!-- https://help.pythonanywhere.com/pages/DjangoStaticFiles/ -->
+
 Run the `collectstatic` command in your Django project. This command collects all static files from your applications and places them into a single folder specified by the `STATIC_ROOT` setting in your Django settings file.
 - RU: Запустите команду `collectstatic` в вашем проекте Django. Эта команда собирает все статические файлы из ваших приложений и помещает их в одну папку, указанную в настройках `STATIC_ROOT` в файле настроек Django.
 ```bash

@@ -5,8 +5,8 @@
 5. *Authentication (full)* && profile-page
 6. *Modals (backend logic)*
 7. *Frontend CRUD*
-8. **Wishlist** && Cart && Completed-order
-9. Hosting
+8. *Wishlist* && Cart && Completed-order
+9. **Hosting**
 10. Cards && Grid (part-1)
 11. About && Contact
 12. Cards && Grid (part-2)
