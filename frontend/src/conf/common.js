@@ -1,4 +1,4 @@
-import { axiosCall } from './axios'
+import {authorizedAxiosCall } from './axios'
 const ACCESS_TOKEN_KEY = 'access_token'
 const REFRESH_TOKEN_KEY = 'refresh_token'
 
@@ -9,7 +9,7 @@ function isLoggedIn() {
 
 
 async function getFurnitures() {
-    const response = await axiosCall('api/furniture/')
+    const response = await authorizedAxiosCall('api/furniture/')
     return response
 }
  

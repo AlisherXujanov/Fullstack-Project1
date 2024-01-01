@@ -1,34 +1,38 @@
 import "./style.scss"
 import { useEffect, useContext } from 'react'
-import { axiosCall } from '../../conf/axios'
+import { authorizedAxiosCall } from '../../conf/axios'
 import { BASE_URL, context } from "../../conf/store"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
-
 
 function Wishlist(props) {
     const state = useContext(context)
 
     async function getWishlist() {
-        let headers = {
-            "Authorization": "Bearer " + localStorage.getItem("access_token"),
-        }
         const url = "api/furniture/wishlist/"
-        const response = await axiosCall(url, null, headers)
+        const response = await authorizedAxiosCall(url)
         state.dispatch({
             type: "setWishlist",
             payload: response
         })
         console.log(state)
     }
-
-    async function delItem(itemID) {
-        const data = { furniture_id: itemID, delete_item: true }
-        const response = await axiosCall(`api/furniture/wishlist/`, data, 
-        {
-            "Authorization": "Bearer " + localStorage.getItem("access_token"),
-        }, "POST")
+    
+    async function delItem(e, itemID) {
+        e.preventDefault()
+        if (!itemID) return
+        const data = { furniture_id: itemID, delete_furniture: true }
+        
+        const response = await authorizedAxiosCall(`api/furniture/wishlist/`, data, "POST")
         console.log(response)
+        if (response?.error) {
+            toast.error("Error deleting item from wishlist", {toastId: 15})
+            return
+        }
+        state.dispatch({
+            type: "setWishlist",
+            payload: data
+        })
         toast.success("Deleted from wishlist", {toastId: 15})
     }
 
@@ -63,7 +67,7 @@ function Wishlist(props) {
                                             <p>Category: {item.category}</p>
                                         </div>
 
-                                        <span onClick={delItem} className="del-item">
+                                        <span onClick={(e) => {delItem(e, item?.id)}} className="del-item">
                                             &times;
                                         </span>
                                     </div>

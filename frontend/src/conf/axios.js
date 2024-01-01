@@ -19,6 +19,14 @@ async function axiosCall(path, data = null, headersData = null, method = "GET") 
         return error
     }
 }
+async function authorizedAxiosCall(path, data = null, method = "GET") {
+    const headers = {
+        "Authorization": "Bearer " + localStorage.getItem("access_token"),
+    }
+    return await axiosCall(path, data, headers, method)
+}
+
 export {
-    axiosCall
+    axiosCall,
+    authorizedAxiosCall
 }

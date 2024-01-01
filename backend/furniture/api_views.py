@@ -59,15 +59,8 @@ class WishlistApiView(NoAuthApiView):
 
 
     def post(self, request):
-        print("=============================================")
-        print("=============================================")
-        print("=============================================")
-        print("request.data: ", request.data)
-        print("=============================================")
-        print("=============================================")
-        print("=============================================")
         furniture_id = request.data.get('furniture_id')
-        if delete := request.data.get('delete_furniture'):
+        if delete_is_requested := request.data.get('delete_furniture'):
             del_furniture_from_wishlist(request, furniture_id)
         else:
             set_wishlist(request, furniture_id)

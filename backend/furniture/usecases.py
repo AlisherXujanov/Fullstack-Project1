@@ -14,8 +14,8 @@ class AuthApiView(NoAuthApiView):
 
 def get_wishlist(request):
     if request.user.is_authenticated:
-        wishlist_objs = WishList.objects.filter(owner=request.user)
-        return wishlist_objs[0]
+        if wishlist_objs := WishList.objects.filter(owner=request.user):
+            return wishlist_objs[0]
     return []
 
 

@@ -1,5 +1,7 @@
 import { createContext } from 'react';
-const BASE_URL = "https://alisherkhujanov.pythonanywhere.com/"
+// const BASE_URL = "https://alisherkhujanov.pythonanywhere.com/"
+const BASE_URL = "http://127.0.0.1:8000/"
+
 
 const context = createContext()
 const initialState = {
@@ -14,7 +16,14 @@ function globalReducer(state, action) {
         case "NotAuth":
             return { ...state, isAuth: false }
         case "setWishlist":
-            return { ...state, wishlist: action.payload }
+            const payload = action.payload
+            if (payload.furniture_id && payload.delete_furniture) {
+                return { ...state, 
+                    wishlist: state.wishlist.filter(item => item.id !== payload.furniture_id) 
+                }
+            } else {
+                return { ...state, wishlist: action.payload }
+            }
         default:
             throw new Error("Unexpected action")
     }
