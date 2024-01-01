@@ -54,13 +54,16 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                gap: 20px;
+                transition: 0.3s;
 
                 img {
-                    width: 20px;
-                    height: 20px;
-                    margin: 10px 0;
+                    width: 22px;
+                    height: 22px;
+                    margin: 5px 0;
                 }
-                span {
+                span,
+                a {
                     width: 35px;
                     height: 35px;
                     border-radius: 50%;
@@ -73,9 +76,14 @@
 
                 .hover-info {
                     width: 20%;
-                    span {
+                    .add-to-wishlist-btn:first-child {
                         &:hover {
                             background-color: $dark-blue;
+                        }
+                    }
+                    a {
+                        &:hover {
+                            background-color: $danger;
                         }
                     }
                 }

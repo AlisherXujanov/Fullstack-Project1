@@ -5,6 +5,7 @@ import Wishlist from "../../assets/icons/wishlist-vector.png"
 import Cart from "../../assets/icons/card-vector.png"
 import { authorizedAxiosCall } from '../../conf/axios.js'
 import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
 
 function Item(props) {
     const DISCOUNT = 0.35
@@ -21,9 +22,16 @@ function Item(props) {
     return (
         <div className="product-item-wrapper">
             <div className="hover-info">
-                <span><img src={Cart} alt="Cart" /></span>
-                <span onClick={addToWishlist} ><img src={Wishlist} alt="Wishlist" /></span>
-                <span><img src={ZoomIn} alt="ZoomIn" /></span>
+
+                <span 
+                    className="add-to-wishlist-btn" 
+                    onClick={addToWishlist} >
+                        <img src={Wishlist} alt="Wishlist" width={22} height={22} />
+                </span>
+
+                <Link to={`/furniture-details/${props.itemID}`}>
+                    <span><img className="view-item" src={ZoomIn} alt="ZoomIn" /></span>
+                </Link>
             </div>
             <img
                 src={BASE_URL + props.image}
